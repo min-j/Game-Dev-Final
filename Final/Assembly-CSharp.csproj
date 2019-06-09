@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\AsteroidManager.cs" />
     <Compile Include="Assets\Scripts\FollowCam.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
+    <Compile Include="Assets\Scripts\Thruster.cs" />
     <None Include="Assets\Prefabs\Luminaris Starship\Documentation\Readme Luminaris.txt" />
     <None Include="Assets\Prefabs\StratosClassCruiser\README.txt" />
     <None Include="Assets\Prefabs\ErisClassCruiser\README.txt" />

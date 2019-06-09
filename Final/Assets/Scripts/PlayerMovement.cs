@@ -10,6 +10,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     float turnSpeed = 60f;
 
+    [SerializeField]
+    Thruster[] thruster;
+
     Transform myT;
 
     private void Awake()
@@ -35,6 +38,8 @@ public class PlayerMovement : MonoBehaviour
 
     void Thrust() {
         //thurst is used to move forward only hence the if statement
+        //if we start to thrust, call Thuruster.Activate()
+        //when we stop thrusting, call thruster.Actvale(fasle)
         if(Input.GetAxis("Vertical") > 0)
             myT.position += myT.forward * movementSpeed * Time.deltaTime * Input.GetAxis("Vertical");
     }
