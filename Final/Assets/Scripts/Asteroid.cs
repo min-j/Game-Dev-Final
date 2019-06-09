@@ -39,4 +39,5 @@ public class Asteroid : MonoBehaviour
     {
         myT.Rotate(randomRotation * Time.deltaTime);
     }
+
 }

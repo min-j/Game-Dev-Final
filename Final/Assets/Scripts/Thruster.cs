@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class Thruster : MonoBehaviour
 {
-    TrailRenderer tr;
+    //TrailRenderer tr;
     Light thrusterLight;
 
     private void Start()
@@ -17,7 +17,7 @@ public class Thruster : MonoBehaviour
     }
     private void Awake()
     {
-        tr = GetComponent<TrailRenderer>();
+        //tr = GetComponent<TrailRenderer>();
         thrusterLight = GetComponent<Light>();
     }
 

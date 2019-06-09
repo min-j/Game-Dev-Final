@@ -39,18 +39,37 @@ public class Laser : MonoBehaviour
         if (Physics.Raycast(transform.position, fwd, out hit))
         {
             Debug.Log("We hit: " + hit.transform.name);
+            SpawnExplosion(hit.point, hit.transform);
             return hit.point;
         }
         Debug.Log("We missed...");
         return transform.position + transform.forward * maxDistance;
     }
 
+    void SpawnExplosion(Vector3 hitPosition, Transform target) {
+        Explosion temp = target.GetComponent<Explosion>();
+        if (temp != null)
+            temp.IveBeenHit(hitPosition);
+    }
+
     public void FireLaser()
+    {
+        Vector3 pos = CastRay();
+        FireLaser(pos);
+    }
+
+    public void FireLaser(Vector3 targetPosition, Transform target = null)
     {
         if (canFire)
         {
+            if (target != null) { 
+
+                Debug.Log("the enemy hit me!");
+                SpawnExplosion(targetPosition, target);
+            }
+
             lr.SetPosition(0, transform.position);
-            lr.SetPosition(1, CastRay());
+            lr.SetPosition(1, targetPosition);
             lr.enabled = true;
             canFire = false;
             laserLight.enabled = true;

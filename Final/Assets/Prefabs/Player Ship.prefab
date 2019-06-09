@@ -269,7 +269,7 @@ GameObject:
   - component: {fileID: 1065218064}
   m_Layer: 0
   m_Name: Player Ship
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -303,7 +303,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da221ae349ed7b541bf8e0357c02325d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  movementSpeed: 30
+  movementSpeed: 40
   turnSpeed: 60
   thruster:
   - {fileID: 586466120}
