@@ -40,7 +40,18 @@ public class PlayerMovement : MonoBehaviour
         //thurst is used to move forward only hence the if statement
         //if we start to thrust, call Thuruster.Activate()
         //when we stop thrusting, call thruster.Actvale(fasle)
-        if(Input.GetAxis("Vertical") > 0)
+        if (Input.GetAxis("Vertical") > 0)
+        {
             myT.position += myT.forward * movementSpeed * Time.deltaTime * Input.GetAxis("Vertical");
+            foreach (Thruster t in thruster)
+                t.Intensity(Input.GetAxis("Vertical"));
+        }
+
+        /*if (Input.GetKeyDown(KeyCode.W) || Input.GetKeyDown(KeyCode.UpArrow))
+            foreach (Thruster t in thruster)
+                t.Activate();
+        else if (Input.GetKeyUp(KeyCode.W) || Input.GetKeyUp(KeyCode.UpArrow))
+            foreach (Thruster t in thruster)
+                t.Activate(false);*/
     }
 }
