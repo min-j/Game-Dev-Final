@@ -49,7 +49,10 @@ public class Laser : MonoBehaviour
     void SpawnExplosion(Vector3 hitPosition, Transform target) {
         Explosion temp = target.GetComponent<Explosion>();
         if (temp != null)
+        {
             temp.IveBeenHit(hitPosition);
+            temp.AddForce(hitPosition, transform);
+        }
     }
 
     public void FireLaser()
@@ -64,7 +67,7 @@ public class Laser : MonoBehaviour
         {
             if (target != null) { 
 
-                Debug.Log("the enemy hit me!");
+                //Debug.Log("the enemy hit me!");
                 SpawnExplosion(targetPosition, target);
             }
 
