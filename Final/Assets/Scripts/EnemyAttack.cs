@@ -10,6 +10,8 @@ public class EnemyAttack : MonoBehaviour
     Vector3 hitPos;
     private void Update()
     {
+        if (!FindTarget())
+            return;
         InFront();
         HaveLineOfSightRayCast();
         if (InFront() && HaveLineOfSightRayCast()) {
@@ -46,5 +48,14 @@ public class EnemyAttack : MonoBehaviour
 
     void FireLaser() {
         laser.FireLaser(hitPos, target);
+    }
+
+    bool FindTarget()
+    {
+        if (target == null)
+            target = GameObject.FindGameObjectWithTag("Player").transform;
+        if (target == null)
+            return false;
+        return true;
     }
 }

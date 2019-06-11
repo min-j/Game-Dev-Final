@@ -13,6 +13,8 @@ public class EnemyMovement : MonoBehaviour
 
     private void Update()
     {
+        if (!FindTarget())
+            return;
         Pathfinding();
         //Turn();
         Move();    
@@ -65,5 +67,13 @@ public class EnemyMovement : MonoBehaviour
         else
             Turn();
 
+    }
+
+    bool FindTarget() {
+        if (target == null)
+            target = GameObject.FindGameObjectWithTag("Player").transform;
+        if (target == null)
+            return false;
+        return true;
     }
 }

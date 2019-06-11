@@ -51,7 +51,7 @@ public class Laser : MonoBehaviour
         if (temp != null)
         {
             temp.IveBeenHit(hitPosition);
-            temp.AddForce(hitPosition, transform);
+            //temp.AddForce(hitPosition, transform);
         }
     }
 
