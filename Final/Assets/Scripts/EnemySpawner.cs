@@ -9,7 +9,18 @@ public class EnemySpawner : MonoBehaviour
 
     private void Start()
     {
-        StartSpawning();
+        //StartSpawning();
+    }
+
+    private void OnEnable()
+    {
+        EventManager.onStartGame += StartSpawning;
+    }
+
+    private void OnDisable()
+    {
+        StopSpawning();
+        EventManager.onStartGame -= StartSpawning;
     }
 
     void SpawnEnemy() {
