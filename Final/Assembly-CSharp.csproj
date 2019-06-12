@@ -73,6 +73,7 @@
     <Compile Include="Assets\Scripts\PlayerInput.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\Shield.cs" />
+    <Compile Include="Assets\Scripts\ShieldUI.cs" />
     <Compile Include="Assets\Scripts\Thruster.cs" />
     <None Include="Assets\Prefabs\Luminaris Starship\Documentation\Readme Luminaris.txt" />
     <None Include="Assets\Prefabs\StratosClassCruiser\README.txt" />

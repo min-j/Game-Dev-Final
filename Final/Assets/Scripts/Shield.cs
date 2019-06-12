@@ -28,6 +28,11 @@ public class Shield : MonoBehaviour
 
     public void TakeDamage(int dmg = 1) {
         curHealth -= dmg;
+
+        if (curHealth < 0)
+            curHealth = 0;
+
+        EventManager.TakeDamage(curHealth / (float)maxHealth);
         if (curHealth < 1)
             Debug.Log("I B DED");
     }

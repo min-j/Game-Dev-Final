@@ -7,9 +7,19 @@ public class EventManager : MonoBehaviour
     public delegate void StartGameDelegate();
     public static StartGameDelegate onStartGame;
 
+    public delegate void TakeDamageDelegate(float amt);
+    public static TakeDamageDelegate onTakeDamage;
+
     public static void StartGame() {
         //Debug.Log("Start the Game");
         if (onStartGame != null)
             onStartGame();
+    }
+
+    public static void TakeDamage(float percent)
+    {
+        Debug.Log("Take dmg: " + percent);
+        if (onTakeDamage != null)
+            onTakeDamage(percent);
     }
 }
