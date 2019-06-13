@@ -19,6 +19,8 @@ public class FollowCam : MonoBehaviour
 
     private void LateUpdate()
     {
+        if (!FindTarget())
+            return;
         SmoothFollow();
        /* Vector3 toPos = target.position + (target.rotation * defaultDistance);
         Vector3 curPos = Vector3.Lerp(myT.position, toPos, distanceDamp * Time.deltaTime);
@@ -35,5 +37,18 @@ public class FollowCam : MonoBehaviour
         myT.position = curPos;
 
         myT.LookAt(target, target.up);
+    }
+
+    bool FindTarget()
+    {
+        if (target == null)
+        {
+            GameObject temp = GameObject.FindGameObjectWithTag("Player");
+            if (temp != null)
+                target = temp.transform;
+        }
+        if (target == null)
+            return false;
+        return true;
     }
 }

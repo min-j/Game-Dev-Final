@@ -6,34 +6,42 @@ using UnityEngine.UI;
 
 public class GameUI : MonoBehaviour
 {
-    bool isDisplayed = true;
-    [SerializeField] GameObject playButton;
+    [SerializeField] GameObject mainMenu;
+    [SerializeField] GameObject gameUI;
+    [SerializeField] GameObject playerPrefab;
+    [SerializeField] GameObject playerStartPosition;
+
+    //[SerializeField] GameObject playButton;
+
+    private void Start()
+    {
+        ShowMainMenu();
+    }
 
     private void OnEnable()
     {
-        EventManager.onStartGame += HidePanel;
+        EventManager.onStartGame += ShowGameUI;
+        EventManager.onPlayerDeath += ShowMainMenu;
     }
 
     private void OnDisable()
     {
-        EventManager.onStartGame -= HidePanel;
+        EventManager.onStartGame -= ShowGameUI;
+        EventManager.onPlayerDeath -= ShowMainMenu;
     }
 
-    void HidePanel() {
-        isDisplayed = !isDisplayed;
-        playButton.SetActive(isDisplayed);
-
-        /*if (isDisplayed)
-        {
-            playButton.SetActive(false);
-        }
-        else {
-            playButton.SetActive(true);
-        }*/
-    }
-
-    public void PlayGame()
+    void ShowMainMenu()
     {
-        EventManager.StartGame();
+        mainMenu.SetActive(true);
+        gameUI.SetActive(false);
     }
+
+    void ShowGameUI()
+    {
+        mainMenu.SetActive(false);
+        gameUI.SetActive(true);
+
+        Instantiate(playerPrefab, playerStartPosition.transform.position, playerStartPosition.transform.rotation);
+    }
+
 }

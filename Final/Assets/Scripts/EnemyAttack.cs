@@ -53,7 +53,11 @@ public class EnemyAttack : MonoBehaviour
     bool FindTarget()
     {
         if (target == null)
-            target = GameObject.FindGameObjectWithTag("Player").transform;
+        {
+            GameObject temp = GameObject.FindGameObjectWithTag("Player");
+            if (temp != null)
+                target = temp.transform;
+        }
         if (target == null)
             return false;
         return true;

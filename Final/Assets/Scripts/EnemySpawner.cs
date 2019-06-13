@@ -15,12 +15,14 @@ public class EnemySpawner : MonoBehaviour
     private void OnEnable()
     {
         EventManager.onStartGame += StartSpawning;
+        EventManager.onPlayerDeath += StopSpawning;
     }
 
     private void OnDisable()
     {
-        StopSpawning();
+        //StopSpawning();
         EventManager.onStartGame -= StartSpawning;
+        EventManager.onPlayerDeath -= StopSpawning;
     }
 
     void SpawnEnemy() {

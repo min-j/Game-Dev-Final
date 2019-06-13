@@ -22,8 +22,9 @@ public class Shield : MonoBehaviour
         }
         if (curHealth > maxHealth) {
             curHealth = maxHealth;
-            CancelInvoke();
+            //CancelInvoke();
         }
+        EventManager.TakeDamage(curHealth / (float)maxHealth);
     }
 
     public void TakeDamage(int dmg = 1) {
@@ -34,6 +35,9 @@ public class Shield : MonoBehaviour
 
         EventManager.TakeDamage(curHealth / (float)maxHealth);
         if (curHealth < 1)
-            Debug.Log("I B DED");
+        {
+            GetComponent<Explosion>().BlowUp();
+            //Debug.Log("I B DED");
+        }
     }
 }
