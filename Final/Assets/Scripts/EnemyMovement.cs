@@ -2,6 +2,9 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[DisallowMultipleComponent]
+[RequireComponent(typeof(TrailRenderer))]
+[RequireComponent(typeof(EnemyAttack))]
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] Transform target;
