@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[DisallowMultipleComponent]
 public class Explosion : MonoBehaviour
 {
     [SerializeField] GameObject explosion;
@@ -40,8 +41,9 @@ public class Explosion : MonoBehaviour
 
     public void BlowUp()
     {
-        EventManager.PlayerDeath();
-        Instantiate(blowup, transform.position, Quaternion.identity);
+        //EventManager.PlayerDeath();
+        GameObject temp = Instantiate(blowup, transform.position, Quaternion.identity) as GameObject;
+        Destroy(temp, 3f);
         Destroy(gameObject);
     }
 }

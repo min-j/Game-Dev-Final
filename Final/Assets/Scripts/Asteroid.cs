@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[DisallowMultipleComponent]
+[RequireComponent(typeof(Explosion))]
 public class Asteroid : MonoBehaviour
 {
     [SerializeField]
@@ -11,6 +13,7 @@ public class Asteroid : MonoBehaviour
     [SerializeField]
     float rotationOffset = 100f;
 
+    public static float destructionDelay = 1.0f;
 
     Transform myT;
     Vector3 randomRotation;
@@ -40,4 +43,14 @@ public class Asteroid : MonoBehaviour
         myT.Rotate(randomRotation * Time.deltaTime);
     }
 
+    public void SelfDestruct()
+    {
+        float timer = Random.Range(0, destructionDelay);
+        Invoke("Goboom", timer);
+    }
+
+    public void Goboom()
+    {
+        GetComponent<Explosion>().BlowUp();
+    }
 }

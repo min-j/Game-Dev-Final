@@ -15,7 +15,7 @@ public class GameUI : MonoBehaviour
 
     private void Start()
     {
-        ShowMainMenu();
+        DelayMainMenuDisplay();
     }
 
     private void OnEnable()
@@ -31,6 +31,11 @@ public class GameUI : MonoBehaviour
     }
 
     void ShowMainMenu()
+    {
+        Invoke("DelayMainMenuDisplay", Asteroid.destructionDelay * 3);
+    }
+
+    void DelayMainMenuDisplay()
     {
         mainMenu.SetActive(true);
         gameUI.SetActive(false);

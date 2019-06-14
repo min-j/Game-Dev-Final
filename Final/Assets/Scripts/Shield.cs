@@ -36,6 +36,7 @@ public class Shield : MonoBehaviour
         EventManager.TakeDamage(curHealth / (float)maxHealth);
         if (curHealth < 1)
         {
+            EventManager.PlayerDeath();
             GetComponent<Explosion>().BlowUp();
             //Debug.Log("I B DED");
         }
